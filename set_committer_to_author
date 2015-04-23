@@ -1,0 +1,25 @@
+#! /bin/bash
+
+main() {
+  set_author_name
+  set_author_email
+  git_amend 
+}
+
+git_amend() {
+   git commit --amend -m "$(this_subject)"
+}
+
+set_author_name() {
+  GIT_COMMITTER_NAME=$(git log -n1 --pretty=format:"%an")
+}
+
+set_author_email(){
+ GIT_COMMITTER_EMAIL=$(git log -n1 --pretty=format:"%ae")
+}
+
+this_subject(){
+  git log -n1 --pretty=format:"%s"
+}
+
+main
