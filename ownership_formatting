@@ -1,0 +1,1 @@
+git log -n2 --pretty=format:"sha: %h %n author:   %an, %ae %n commiter: %cn, %ce %n subject:  %s"
